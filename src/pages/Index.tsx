@@ -173,7 +173,7 @@ export default function Index() {
                 >
                   <div className="relative overflow-hidden" style={{ aspectRatio: "4/3" }}>
                     <img src={plant.img} alt={plant.name} className="w-full h-full object-cover" />
-                    <div className="absolute top-2 left-2 flex flex-col gap-1">
+                    <div className="absolute top-2 left-2">
                       <span
                         className="tag-chip px-2 py-0.5 text-xs"
                         style={
@@ -184,18 +184,15 @@ export default function Index() {
                       >
                         {plant.tag}
                       </span>
-                      <span
-                        className="tag-chip px-2 py-0.5 text-xs"
-                        style={{ background: "rgba(0,0,0,0.55)", color: "white", backdropFilter: "blur(4px)" }}
-                      >
-                        {plant.stage === "Черенок" ? "✂️ Черенок" : plant.stage === "Детка" ? "🌱 Детка" : "🌳 Взрослое"}
-                      </span>
                     </div>
                     <div className="absolute bottom-0 left-0 right-0 h-16" style={{ background: "linear-gradient(to top, rgba(0,0,0,0.5), transparent)" }} />
                   </div>
                   <div className="p-3">
                     <p className="font-oswald font-semibold text-sm leading-tight" style={{ color: "var(--ink)" }}>{plant.name}</p>
                     <p className="text-xs mt-0.5" style={{ color: "var(--green-mid)" }}>{plant.type}</p>
+                    <p className="text-xs mt-0.5 text-gray-400">
+                      {plant.stage === "Черенок" ? "✂️ Черенок" : plant.stage === "Детка" ? "🌱 Детка" : "🌳 Взрослое"}
+                    </p>
                     <div className="flex items-center justify-between mt-2">
                       <div className="flex items-center gap-1">
                         <Icon name="MapPin" size={10} className="text-gray-400" />
