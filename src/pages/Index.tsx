@@ -6,6 +6,7 @@ const PLANTS = [
     id: 1,
     name: "Монстера делициоза",
     type: "Тропические",
+    stage: "Взрослое",
     owner: "Алиса К.",
     distance: "0.3 км",
     rating: 4.9,
@@ -19,6 +20,7 @@ const PLANTS = [
     id: 2,
     name: "Коллекция суккулентов",
     type: "Суккуленты",
+    stage: "Детка",
     owner: "Михаил Р.",
     distance: "1.1 км",
     rating: 4.7,
@@ -32,6 +34,7 @@ const PLANTS = [
     id: 3,
     name: "Фикус лировидный",
     type: "Деревья",
+    stage: "Взрослое",
     owner: "Ирина М.",
     distance: "0.8 км",
     rating: 5.0,
@@ -45,6 +48,7 @@ const PLANTS = [
     id: 4,
     name: "Потос золотистый",
     type: "Ампельные",
+    stage: "Черенок",
     owner: "Денис В.",
     distance: "2.4 км",
     rating: 4.8,
@@ -169,7 +173,7 @@ export default function Index() {
                 >
                   <div className="relative overflow-hidden" style={{ aspectRatio: "4/3" }}>
                     <img src={plant.img} alt={plant.name} className="w-full h-full object-cover" />
-                    <div className="absolute top-2 left-2">
+                    <div className="absolute top-2 left-2 flex flex-col gap-1">
                       <span
                         className="tag-chip px-2 py-0.5 text-xs"
                         style={
@@ -179,6 +183,12 @@ export default function Index() {
                         }
                       >
                         {plant.tag}
+                      </span>
+                      <span
+                        className="tag-chip px-2 py-0.5 text-xs"
+                        style={{ background: "rgba(0,0,0,0.55)", color: "white", backdropFilter: "blur(4px)" }}
+                      >
+                        {plant.stage === "Черенок" ? "✂️ Черенок" : plant.stage === "Детка" ? "🌱 Детка" : "🌳 Взрослое"}
                       </span>
                     </div>
                     <div className="absolute bottom-0 left-0 right-0 h-16" style={{ background: "linear-gradient(to top, rgba(0,0,0,0.5), transparent)" }} />
