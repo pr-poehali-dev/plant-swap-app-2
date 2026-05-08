@@ -403,6 +403,27 @@ export default function Index() {
               </div>
             </div>
 
+            {/* Plants being swapped */}
+            <div className="px-4 py-3 flex items-center gap-2" style={{ background: "#F0F7EC", borderBottom: "1px solid #dcecd4" }}>
+              <div className="flex-1 flex items-center gap-2 min-w-0">
+                <img src={PLANTS[0].img} alt={PLANTS[0].name} className="w-10 h-10 object-cover flex-shrink-0" style={{ border: "1.5px solid var(--lime)" }} />
+                <div className="min-w-0">
+                  <p className="text-xs text-gray-400 leading-none mb-0.5">Вы предлагаете</p>
+                  <p className="text-xs font-semibold truncate">{PLANTS[0].name}</p>
+                  <p className="text-xs text-gray-400">{PLANTS[0].stage === "Черенок" ? "✂️ Черенок" : PLANTS[0].stage === "Детка" ? "🌱 Детка" : "🌳 Взрослое"}</p>
+                </div>
+              </div>
+              <Icon name="Repeat2" size={16} className="flex-shrink-0" style={{ color: "var(--green-mid)" }} />
+              <div className="flex-1 flex items-center gap-2 justify-end min-w-0">
+                <div className="min-w-0 text-right">
+                  <p className="text-xs text-gray-400 leading-none mb-0.5">Алиса предлагает</p>
+                  <p className="text-xs font-semibold truncate">{PLANTS[1].name}</p>
+                  <p className="text-xs text-gray-400">{PLANTS[1].stage === "Черенок" ? "✂️ Черенок" : PLANTS[1].stage === "Детка" ? "🌱 Детка" : "🌳 Взрослое"}</p>
+                </div>
+                <img src={PLANTS[1].img} alt={PLANTS[1].name} className="w-10 h-10 object-cover flex-shrink-0" style={{ border: "1.5px solid var(--lime)" }} />
+              </div>
+            </div>
+
             <div className="flex-1 overflow-y-auto px-5 py-4 space-y-3">
               {chatHistory.map((m, i) => (
                 <div key={i} className={`flex ${m.from === "me" ? "justify-end" : "justify-start"}`}>
